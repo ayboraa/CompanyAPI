@@ -17,8 +17,6 @@ public class MemberEntity {
     private String currency;
     private boolean isAdmin;
 
-    public MemberEntity() {
-    }
 
     public MemberEntity(UUID id, String firstName, String lastName, String email, float salary, String currency, boolean isAdmin) {
         this.id = id;
@@ -28,6 +26,9 @@ public class MemberEntity {
         this.salary = salary;
         this.currency = currency;
         this.isAdmin = isAdmin;
+    }
+
+    public MemberEntity() {
     }
 
     public UUID getId() {
