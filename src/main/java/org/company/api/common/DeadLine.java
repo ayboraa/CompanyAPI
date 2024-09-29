@@ -12,10 +12,6 @@ public class DeadLine {
 
         Assert.notNull(dt, "date cannot be null");
 
-        if (dt.before(new Date())) {
-            throw new IllegalArgumentException("Due date cannot be in the past");
-        }
-
         this.date = dt;
 
     }

@@ -1,5 +1,6 @@
 package org.company.api.service;
 
+import jakarta.annotation.Nullable;
 import org.company.api.common.CommentId;
 import org.company.api.common.MemberId;
 import org.springframework.util.Assert;
@@ -9,11 +10,13 @@ public class Comment {
     private MemberId authorId;
     private String content;
 
-    public Comment(MemberId authorId, String content) {
+    /// todo: Comment assigned to what?
+
+    public Comment(@Nullable CommentId commentId, MemberId authorId, String content) {
         Assert.notNull(authorId, "authorId cannot be null");
         Assert.notNull(content, "content cannot be null");
 
-        this.id = new CommentId();
+        this.id = (commentId == null) ? new CommentId() : commentId;
         this.authorId = authorId;
         this.content = content;
     }
@@ -22,23 +25,13 @@ public class Comment {
     public CommentId getId() {
         return id;
     }
-    public void setId(CommentId id) {
-        this.id = id;
-    }
 
     public MemberId getAuthorId() {
         return authorId;
     }
 
-    public void setAuthorId(MemberId authorId) {
-        this.authorId = authorId;
-    }
-
     public String getContent() {
         return content;
-    }
-    public void setContent(String content) {
-        this.content = content;
     }
 
 
